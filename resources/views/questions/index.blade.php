@@ -12,6 +12,7 @@
                 	</div>
                 </div>
                 <div class="panel-body">
+					@include('layouts._messages')
                     @foreach($questions as $question)
                     	<div class="media">
                     		<div class="col-md-2 counters text-center">
