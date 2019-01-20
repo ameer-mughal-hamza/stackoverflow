@@ -14,8 +14,17 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::latest()->paginate(5);
+        // Lazy Loading N+1 Problem
+        // \DB::enableQueryLog();
+        // $questions = Question::latest()->paginate(5);
+        // // return view('questions.index',compact('questions'));
+        // view('questions.index',compact('questions'))->render();
+        // dd(\DB::getQueryLog());
+
+        // Overcome this problem by simply using with method.
+        $questions = Question::with('user')->latest()->paginate(5);
         return view('questions.index',compact('questions'));
+
     }
 
     /**
