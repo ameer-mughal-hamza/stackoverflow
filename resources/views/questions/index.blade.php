@@ -38,6 +38,11 @@
 										</div>
 										<div class="pull-right">
 											<a href="{{ route('questions.edit', $question->id) }}" class="btn btn-success btn-sm">Edit</a>
+											<form class="form-delete" action="{{ route('questions.destroy',$question->id) }}" method="post">
+												{{ method_field('DELETE') }}
+												{{ csrf_field() }}
+												<button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</button>
+											</form>
 										</div>
 									</div>
                     			<p class="lead">Asked by 

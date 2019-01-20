@@ -8375,3 +8375,7 @@ button.close {
   margin-top: 10px;
 }
 
+.form-delete {
+  display: inline;
+}
+
