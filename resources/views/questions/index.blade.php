@@ -28,11 +28,18 @@
                     		</div>
                     		<div class="col-md-10">
                     			<div class="media-body">
-                    			<h3 class="mt-0">
-                    				<a href="{{ $question->url }}">
-                    					{{ $question->title }}
-                    				</a>
-                    			</h3>
+									<div class="clearfix">
+										<div class="pull-left">
+												<h3 class="mt-0">
+													<a href="{{ $question->url }}">
+														{{ $question->title }}
+													</a>
+												</h3>
+										</div>
+										<div class="pull-right">
+											<a href="{{ route('questions.edit', $question->id) }}" class="btn btn-success btn-sm">Edit</a>
+										</div>
+									</div>
                     			<p class="lead">Asked by 
                     				<a href="{{ $question->user->url }}">{{ $question->user->name }}</a>
                     				<small>{{$question->created_date}}</small>
