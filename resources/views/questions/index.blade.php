@@ -9,7 +9,19 @@
                 <div class="panel-body">
                     @foreach($questions as $question)
                     	<div class="media">
-                    		<div class="media-body">
+                    		<div class="col-md-2 counters text-center">
+                    			<div class="vote">
+                    				<strong>{{ $question->votes }}</strong> {{ str_plural('vote',$question->votes) }}
+                    			</div>
+                    			<div class="answer {{ $question->status }}">
+                    				<strong>{{ $question->answers }}</strong> {{ str_plural('answer',$question->answers) }}
+                    			</div>
+                    			<div class="status">
+                    				{{ $question->views . " " . str_plural('view',$question->views) }}
+                    			</div>
+                    		</div>
+                    		<div class="col-md-10">
+                    			<div class="media-body">
                     			<h3 class="mt-0">
                     				<a href="{{ $question->url }}">
                     					{{ $question->title }}
@@ -20,6 +32,7 @@
                     				<small>{{$question->created_date}}</small>
                     			</p>
                     			{{ str_limit($question->body,250) }}
+                    		</div>
                     		</div>
                     	</div>
                     	<hr>
